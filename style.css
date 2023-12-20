@@ -1,0 +1,339 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cormorant Infant', serif;
+}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;700&display=swap');
+html{
+    font-size: 25px;
+}
+h1 {
+    font-size: 8rem;
+    font-weight: 300;
+}
+h2, h3{
+    font-size: 2rem;
+    font-weight: 400;
+}
+.header__big{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh; 
+    width: 100%;
+}
+.header__top-half, .header__bottom-half{
+width: 100%;
+height: 50%;
+position: absolute;
+background-color: #fff;
+z-index: 2;
+left: 0;
+transition: 0.7s;
+}
+.header__content-container{
+    height: 100vh;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.header__top-half{
+    top: 0;
+}
+.header__bottom-half{
+    top: 50%;
+}
+.header__title{
+    position: absolute;
+    max-width: 100%;
+    text-align: center;
+    z-index: 3;
+    color: #787878;
+    letter-spacing: 133px;
+    top: 20%;
+}
+.header__content-container:hover .header__top-half{
+    transform: translateY(-90%);
+}
+.header__content-container:hover .header__bottom-half{
+    transform: translateY(90%);
+}
+.header__btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    bottom: 30%;
+    border-radius: 20px;
+    background: #8D4545;
+    padding: 40px 130px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    transition: 0.2s;
+}
+.header__btn::before{
+    content: url(img/header-btn-left.png);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: -80px;
+}
+.header__btn::after{
+    content: url(img/header-btn-right.png);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    right: -80px;
+}
+.header__btn:hover{
+    transform: translateX(-50%) scale(1.1);
+}
+.side-nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background: #FFF;
+    height: 100vh;
+    width: 130px;
+    box-shadow: -5px 0px 20px 0px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+}
+.nav__items{
+    display: flex;
+    flex-direction: column;
+}
+.nav__item{
+    position: relative;
+}
+.nav__item::before{
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 0;
+    transform: translateY(-50%);
+    overflow: hidden;
+
+}
+.nav__item:first-of-type::before{
+    content: "Главная";
+}
+.nav__item:nth-of-type(2)::before{
+    content: "История";
+}
+.nav__item:nth-of-type(3)::before{
+    content: "Этапы";
+}
+.nav__item:last-of-type::before{
+    content: "Модели";
+}
+.nav__item:hover::before{
+    width: 100px;
+    transform: translate(-100%, -50%);
+    border: 1px solid #000;
+    background: #8D4545;
+    color: #FFF;
+    padding: 15px 55px;
+}
+.nav__item img{
+    transition: 0.3s;
+}
+.nav__item:hover img{
+    transform: scale(0.9);
+    background: #8D4545;
+}
+.history{
+    padding: 100px;
+}
+.history__container{
+    display: flex;
+    border: 1px solid #000;
+    max-width: 1400px;
+    margin: auto;
+    padding: 30px;
+}
+.history__left, .history__right{
+    width: 50%;
+}
+.history__title::first-letter{
+    font-size: 4rem;
+}
+.history__text{
+    max-width: 500px;
+    color: #848484;
+}
+.history__text::first-line{
+    color:black ;
+    font-weight: 700;
+
+}
+.history__right{
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+.history__images{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: pic_change;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.models{
+    padding: 100px 0;
+}
+.models__container{
+    display: flex;
+    border: 1px solid #000;
+    max-width: 1400px;
+    margin: auto;
+    padding: 30px;
+    flex-direction: column;
+}
+.models__title{
+    text-align: center;
+    margin-bottom: 90px;
+}
+.models__title::first-letter{
+    font-size: 4rem;
+}
+.models__item{
+    width: fit-content;
+    position: relative;
+}
+.models__item:nth-of-type(2n+1){
+    margin-left: auto;
+}
+.models__list{
+    list-style: none;
+}
+.models__item-desk{
+    position: absolute;
+    top: 50%;
+    max-width: 543px;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+    padding: 45px 60px;
+    text-align: center;
+}
+.models__item:nth-of-type(2n) .models__item-desk{
+    right: 0;
+    transform: translate(90%, -50%);
+}
+.models__item:nth-of-type(2n+1) .models__item-desk{
+    left: 0;
+    transform: translate(-90%, -50%);
+}
+.models__item-desk::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background: #000;
+    transition: 0.3s;
+}
+.models__item-desk::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 3px;
+    background: #000;
+    transition: 0.3s;
+}
+.models__item-desk:hover::after, .models__item-desk:hover::before{
+    width: 100%;
+}
+.models__item-desk p{
+    color: #848484;
+}
+.models__item-desk p::first-letter{
+    color: #000;
+    font-weight: 700;
+}
+@keyframes pic_change{
+    0%{
+        left: 0;
+    }
+    33%{
+        left: -100%;
+    }
+    66%{
+        left: -200%;
+    }
+    100%{
+        left: -300%;
+    }
+}
+@media  screen and (max-width:375px){
+    html{
+        font-size: 15px;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    h2, h3{
+        font-size: 2rem;
+    }
+    .header__big{
+        display: none;
+    }
+    .header__title{
+        letter-spacing: 19.95px;
+    }
+    .header__content-container{
+        max-width: 375px;
+    }
+    .header__top-half, .header__bottom-half{
+        display: none;
+    }
+    .header__content-container:hover .header__top-half{
+        transform: none;
+    }
+    .header__content-container:hover .header__bottom-half{
+        transform: none;
+    }
+    .side-nav{
+    width: 100%;
+    height: 66px;
+    }
+    .models__container{
+        max-width: 375px;
+    }
+    .nav__items{
+        flex-direction: row;
+    }
+    .nav__item img{
+        width: 40px;
+        height: 40px;
+    }
+    .nav__item:hover img{
+        display: none;
+    }
+    .nav__item:hover::before{
+        display: none;
+    }
+    .models{
+        display: none;
+    }
+    .header__btn{
+        width: 270px;
+        height: 65px;
+        padding: 10px 40px;
+    }
+    .history{
+    padding: 30px 25px;
+    }
+    .header__pig{
+        position: absolute;
+        top: 30%;
+    }
+}
